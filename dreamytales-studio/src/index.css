@@ -1,0 +1,542 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-signature: "Alex Brush", cursive;
+  
+  --color-luxury-black: #382538;      /* Deep romantic plum-charcoal for neutral text and headings */
+  --color-luxury-charcoal: #4A3E3B;   /* Medium charcoal secondary neutral */
+  --color-luxury-gray: #FAF6F0;       /* Warm ivory base */
+  
+  --color-luxury-ivory: #FAF6F0;      /* Warm ivory primary base */
+  --color-luxury-espresso: #382538;   /* Deep romantic plum-charcoal secondary neutral */
+  --color-luxury-blush: #F4C2C2;      /* Elegant Blush Pink */
+  --color-luxury-gold: #D4AF7A;       /* Champagne Gold */
+  --color-luxury-lavender: #C8A2C8;   /* Lavender/Mauve */
+  --color-luxury-coral: #F0A98B;      /* Soft Coral */
+  --color-luxury-plum: #5C3A5C;       /* Deep Plum contrast */
+  --color-luxury-emerald: #1F3B33;    /* Deep forest emerald deep accent */
+  
+  --color-gold-light: #FAF6F0;        /* Warm ivory */
+  --color-gold: #D4AF7A;              /* Champagne gold */
+  --color-gold-dark: #F4C2C2;         /* Blush pink */
+  
+  --animate-fade-in: fade-in 1s ease-out forwards;
+  --animate-slide-up: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Redesigned Dreamy Color Keyframes & Animations */
+@keyframes dreamy-aurora {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-dreamy-aurora {
+  background: linear-gradient(135deg, #F4C2C2, #C8A2C8, #D4AF7A, #F0A98B, #FAF6F0, #F4C2C2);
+  background-size: 400% 400%;
+  animation: dreamy-aurora 14s ease-in-out infinite;
+}
+
+@keyframes shadow-pulse {
+  0%, 100% {
+    box-shadow: 0 4px 14px rgba(244, 194, 194, 0.4), 0 0 0 0px rgba(212, 175, 122, 0.1);
+  }
+  50% {
+    box-shadow: 0 6px 22px rgba(244, 194, 194, 0.7), 0 0 0 4px rgba(212, 175, 122, 0.25);
+  }
+}
+
+.btn-dreamy {
+  background: linear-gradient(135deg, #F4C2C2, #D4AF7A, #C8A2C8);
+  background-size: 200% auto;
+  color: #382538 !important;
+  font-weight: 600;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(244, 194, 194, 0.45);
+}
+
+.btn-dreamy:hover {
+  background-position: right center;
+  color: #FAF6F0 !important;
+  box-shadow: 0 6px 20px rgba(212, 175, 122, 0.55);
+  transform: translateY(-2px);
+}
+
+.btn-dreamy-pulse {
+  animation: shadow-pulse 3.5s infinite ease-in-out;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.divider-shimmer {
+  position: relative;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(to right, rgba(244, 194, 194, 0.2) 0%, rgba(212, 175, 122, 0.9) 50%, rgba(200, 162, 200, 0.2) 100%);
+  background-size: 200% auto;
+  animation: shimmer 4.5s linear infinite;
+}
+
+@keyframes dreamy-sparkle {
+  0% {
+    transform: scale(0.9) rotate(0deg);
+    color: #F4C2C2;
+    filter: drop-shadow(0 0 2px rgba(244, 194, 194, 0.4));
+  }
+  50% {
+    transform: scale(1.15) rotate(15deg);
+    color: #D4AF7A;
+    filter: drop-shadow(0 0 6px rgba(212, 175, 122, 0.7));
+  }
+  100% {
+    transform: scale(0.9) rotate(-10deg);
+    color: #C8A2C8;
+    filter: drop-shadow(0 0 2px rgba(200, 162, 200, 0.4));
+  }
+}
+
+.animate-dreamy-sparkle {
+  animation: dreamy-sparkle 3s ease-in-out infinite alternate;
+}
+
+.nav-link-dreamy {
+  position: relative;
+}
+
+.nav-link-dreamy::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: linear-gradient(to right, #F4C2C2, #D4AF7A, #C8A2C8, #F0A98B);
+  transform-origin: bottom right;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link-dreamy:hover::after,
+.nav-link-dreamy.active-nav-link::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+@keyframes float-slow-1 {
+  0%, 100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    filter: hue-rotate(0deg);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateY(-40px) scale(1.15) rotate(180deg);
+    filter: hue-rotate(25deg);
+    opacity: 0.45;
+  }
+}
+
+@keyframes float-slow-2 {
+  0%, 100% {
+    transform: translateY(0) scale(1.1) rotate(0deg);
+    filter: hue-rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(50px) scale(0.9) rotate(-180deg);
+    filter: hue-rotate(-25deg);
+    opacity: 0.4;
+  }
+}
+
+.blob-float-1 {
+  animation: float-slow-1 20s ease-in-out infinite;
+}
+
+.blob-float-2 {
+  animation: float-slow-2 24s ease-in-out infinite;
+}
+
+@keyframes color-fade-in {
+  from {
+    color: #F4C2C2;
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    color: inherit;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-color-fade {
+  animation: color-fade-in 1.4s ease-out forwards;
+}
+
+/* Respect user prefers-reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .bg-dreamy-aurora {
+    animation: none !important;
+    background-size: 100% 100%;
+  }
+  .btn-dreamy-pulse {
+    animation: none !important;
+  }
+  .divider-shimmer {
+    animation: none !important;
+    background: linear-gradient(to right, #F4C2C2, #D4AF7A, #C8A2C8);
+  }
+  .animate-dreamy-sparkle {
+    animation: none !important;
+  }
+  .blob-float-1, .blob-float-2 {
+    animation: none !important;
+    opacity: 0.25 !important;
+  }
+}
+
+/* Custom scrollbar matching the premium design */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF6F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #B8956A;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C99C8B;
+}
+
+/* Smooth HTML scroll with high-performance native scroll */
+html {
+  scroll-behavior: smooth;
+  background-color: #FAF6F0;
+  color: #2B2420;
+}
+
+body {
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  background-color: #FAF6F0;
+  color: #2B2420;
+}
+
+/* Section styling layout */
+.snap-section {
+  position: relative;
+}
+
+/* Hide scrollbars for floating cards */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Card Reveal Sub-element Transitions (Apple-like Cinematic Entrance Reveals) */
+.card-container-inner h1,
+.card-container-inner h2,
+.card-container-inner h3,
+.card-container-inner p,
+.card-container-inner img,
+.card-container-inner button,
+.card-container-inner a,
+.card-container-inner .reveal-el {
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+}
+
+/* Inactive State: scaled up, hidden, or shifted */
+.card-inactive .card-container-inner h1,
+.card-inactive .card-container-inner h2,
+.card-inactive .card-container-inner h3,
+.card-inactive .card-container-inner .reveal-heading {
+  opacity: 0;
+  transform: translateY(32px) !important;
+}
+
+.card-inactive .card-container-inner p {
+  opacity: 0;
+  transform: translateY(20px) !important;
+}
+
+.card-inactive .card-container-inner img {
+  transform: scale(1.05) !important;
+}
+
+.card-inactive .card-container-inner button,
+.card-inactive .card-container-inner a {
+  opacity: 0;
+  transform: translateY(24px) !important;
+}
+
+.card-inactive .card-container-inner .reveal-el {
+  opacity: 0;
+  transform: translateY(16px) !important;
+}
+
+/* Active State: restored to standard layout naturally */
+.card-active .card-container-inner h1,
+.card-active .card-container-inner h2,
+.card-active .card-container-inner h3,
+.card-active .card-container-inner .reveal-heading {
+  opacity: 1;
+  transform: translateY(0) !important;
+}
+
+.card-active .card-container-inner p {
+  opacity: 1;
+  transform: translateY(0) !important;
+  transition-delay: 0.1s;
+}
+
+.card-active .card-container-inner img {
+  transform: scale(1) !important;
+  transition: transform 1.8s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.card-active .card-container-inner button,
+.card-active .card-container-inner a {
+  opacity: 1;
+  transform: translateY(0) !important;
+  transition-delay: 0.2s;
+}
+
+.card-active .card-container-inner .reveal-el {
+  opacity: 1;
+  transform: translateY(0) !important;
+  transition-delay: 0.3s;
+}
+
+/* Admin Panel White Theme Override Rules */
+#admin-panel-container {
+  background-color: #ffffff !important;
+  color: #18181b !important; /* zinc-900 */
+}
+
+#admin-panel-container header {
+  background-color: #fafafa !important; /* zinc-50 */
+  border-color: #e4e4e7 !important; /* zinc-200 */
+}
+
+#admin-panel-container header p {
+  color: #71717a !important; /* zinc-500 */
+}
+
+#admin-panel-container aside {
+  background-color: #f4f4f5 !important; /* zinc-100 */
+  border-color: #e4e4e7 !important; /* zinc-200 */
+}
+
+#admin-panel-container main {
+  background-color: #ffffff !important;
+  color: #18181b !important;
+}
+
+/* Form controls and inputs style correction */
+#admin-panel-container input[type="text"],
+#admin-panel-container input[type="email"],
+#admin-panel-container input[type="number"],
+#admin-panel-container input[type="url"],
+#admin-panel-container textarea,
+#admin-panel-container select {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important; /* slate-300 */
+  color: #0f172a !important; /* slate-900 */
+}
+
+#admin-panel-container input::placeholder,
+#admin-panel-container textarea::placeholder {
+  color: #94a3b8 !important; /* slate-400 */
+}
+
+#admin-panel-container label {
+  color: #475569 !important; /* slate-600 */
+}
+
+#admin-panel-container h3,
+#admin-panel-container h4,
+#admin-panel-container h5 {
+  color: #0f172a !important; /* slate-900 */
+}
+
+/* Override dark utility helper classes used in nested sections to fit beautifully in light theme */
+#admin-panel-container .text-white {
+  color: #0f172a !important;
+}
+
+#admin-panel-container .text-zinc-300 {
+  color: #1e293b !important;
+}
+
+#admin-panel-container .text-zinc-400 {
+  color: #475569 !important;
+}
+
+#admin-panel-container .text-zinc-500 {
+  color: #64748b !important;
+}
+
+#admin-panel-container .border-white\/5 {
+  border-color: #e2e8f0 !important; /* slate-200 */
+}
+
+#admin-panel-container .border-white\/10 {
+  border-color: #cbd5e1 !important; /* slate-300 */
+}
+
+#admin-panel-container .bg-white\/1,
+#admin-panel-container .bg-white\/2,
+#admin-panel-container .bg-white\/5 {
+  background-color: #f8fafc !important; /* slate-50 */
+}
+
+#admin-panel-container .bg-white\/10 {
+  background-color: #f1f5f9 !important; /* slate-100 */
+}
+
+#admin-panel-container .bg-black\/30,
+#admin-panel-container .bg-black\/40 {
+  background-color: #f1f5f9 !important; /* slate-100 */
+}
+
+#admin-panel-container .bg-zinc-950,
+#admin-panel-container .bg-zinc-900,
+#admin-panel-container .bg-zinc-800 {
+  background-color: #f1f5f9 !important; /* slate-100 */
+  color: #0f172a !important;
+}
+
+/* Sidebar tab navigation */
+#admin-panel-container aside button {
+  color: #475569 !important; /* slate-600 */
+}
+
+#admin-panel-container aside button:hover {
+  background-color: #e2e8f0 !important; /* slate-200 */
+  color: #000000 !important;
+}
+
+#admin-panel-container aside button.bg-gold\/10 {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  color: #000000 !important;
+}
+
+/* Dropzone borders and hover states */
+#admin-panel-container .border-dashed {
+  border-color: #cbd5e1 !important;
+}
+
+#admin-panel-container .border-dashed:hover {
+  border-color: #000000 !important;
+}
+
+/* --- PREMIUM ADMIN BUTTONS GLOBAL BLACK/WHITE STYLE --- */
+#admin-panel-container button,
+#admin-panel-container label.cursor-pointer,
+#admin-panel-container label[for^="bulk-"] {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 1px solid #000000 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#admin-panel-container button:hover:not(:disabled),
+#admin-panel-container label.cursor-pointer:hover,
+#admin-panel-container label[for^="bulk-"]:hover {
+  background-color: #27272a !important; /* zinc-800 */
+  color: #ffffff !important;
+  border-color: #27272a !important;
+}
+
+#admin-panel-container button:disabled {
+  background-color: #f4f4f5 !important; /* zinc-100 */
+  color: #a1a1aa !important; /* zinc-400 */
+  border-color: #e4e4e7 !important; /* zinc-200 */
+  cursor: not-allowed !important;
+}
+
+/* Specific UI exceptions like cancel/clear indicators and close controls */
+#admin-panel-container button[id$="-clear-btn"],
+#admin-panel-container button.text-red-500,
+#admin-panel-container button.hover\:text-red-600 {
+  background-color: transparent !important;
+  color: #ef4444 !important; /* red-500 */
+  border-color: transparent !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  letter-spacing: normal !important;
+}
+
+#admin-panel-container button[id$="-clear-btn"]:hover,
+#admin-panel-container button.text-red-500:hover {
+  color: #dc2626 !important;
+  background-color: #fef2f2 !important;
+  border-color: transparent !important;
+}
+
+#admin-panel-container button[id="close-admin-btn"] {
+  background-color: transparent !important;
+  color: #71717a !important;
+  border-color: transparent !important;
+}
+
+#admin-panel-container button[id="close-admin-btn"]:hover {
+  color: #000000 !important;
+  background-color: #f4f4f5 !important;
+  border-color: transparent !important;
+}
+
+/* Ensure the top right notification style is perfect */
+#notification-toast {
+  background-color: #f0fdf4 !important; /* light success */
+  color: #166534 !important;
+  border-bottom: 1px solid #bbf7d0 !important;
+}
+#notification-toast.bg-red-950\/20 {
+  background-color: #fef2f2 !important; /* light error */
+  color: #991b1b !important;
+  border-bottom: 1px solid #fecaca !important;
+}
+
+
